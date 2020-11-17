@@ -1,0 +1,30 @@
+version: "3"
+services: 
+    php:
+        container_name: php-DAMP
+        build: php
+        ports: 
+            - "4000:80"
+        volumes: 
+            - ./php:/var/www/html
+    mysql:
+        image: mysql:8
+        ports: 
+            - "4001:3306"
+        environment: 
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_USER=BimaAdi
+            - MYSQL_PASSWORD=mypassword
+            - MYSQL_DATABASE=Test
+        volumes: 
+            - ./mysql/data:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin:5
+        links: 
+            - mysql
+        restart: always
+        ports: 
+            - "4002:80"
+        environment: 
+            - PMA_HOST=mysql
+    

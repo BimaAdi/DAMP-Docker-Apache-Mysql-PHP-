@@ -18,13 +18,11 @@ services:
             - MYSQL_DATABASE={}
         volumes: 
             - ./mysql/data:/var/lib/mysql
-    phpmyadmin:
-        image: phpmyadmin:5
+    adminer:
+        image: adminer:4.7
         links: 
             - mysql
         restart: always
         ports: 
-            - "{phpmyadmin port on localhost}:80"
-        environment: 
-            - PMA_HOST=mysql
+            - "{adminer port on localhost}:8080"
     

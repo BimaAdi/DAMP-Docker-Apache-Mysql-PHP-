@@ -18,13 +18,11 @@ services:
             - MYSQL_DATABASE=Test
         volumes: 
             - ./mysql/data:/var/lib/mysql
-    phpmyadmin:
-        image: phpmyadmin:5
+    adminer:
+        image: adminer:4.7
         links: 
             - mysql
         restart: always
         ports: 
-            - "4002:80"
-        environment: 
-            - PMA_HOST=mysql
+            - "4002:8080"
     

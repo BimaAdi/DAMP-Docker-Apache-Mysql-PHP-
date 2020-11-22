@@ -1,5 +1,5 @@
 # DAMP (Docker Apache Mysql PHP)
-PHP development on docker. PhpMyAdmin Included.
+PHP development on docker. This version use adminer instead of phpmyadmin.
 
 ## Requirements
 - docker >= 19.03.8
